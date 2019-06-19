@@ -1,0 +1,349 @@
+<odoo>
+  <data>
+
+
+    <record id="groud_form_tropi_school" model="ir.ui.view">
+        <field name="name">Groud Form Tropi School</field>
+        <field name="model">tropi.school.ground</field>
+        <field name="arch" type="xml">
+            <form string="Groud">
+                <sheet>
+                  <h1><field name="name"/></h1>
+                    <group class="group-top">
+                      <group class="group-left">
+                        <field name="code"/>
+                        <field name="street"/>
+                        <field name="street2"/>
+                      </group>
+                      <group class="group-right">
+                        <field name="country_id"/>
+                        <field name="zip"/>
+                        <field name="telephone"/>
+                        <field name="email"/>
+                      </group>
+                    </group>
+                  <notebook>
+                            <page string="Grades">
+                                    <field name="grade_ids">
+                                      <tree editable="bottom" string="Grades">
+                                        <field name="name"/>
+                                        <field name="grade"/>
+                                      </tree>
+                                      <form string="Grade">
+                                        <group class="group-top">
+                                          <group class="group-left">
+                                            <field name="name"/>
+                                          </group>
+                                          <group class="group-right">
+                                            <field name="grade"/>
+                                          </group>
+                                        </group>
+                                        <field name="section_ids"/>
+                                      </form>
+                                    </field>
+                            </page>
+                        </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ground_tree_tropi_school" model="ir.ui.view">
+        <field name="name">Groud Tree Tropi School</field>
+        <field name="model">tropi.school.ground</field>
+        <field name="arch" type="xml">
+            <tree string="Grades">
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ground_action_tropi_school" model="ir.actions.act_window">
+        <field name="name">Grouds</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tropi.school.ground</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <record id="grade_form_tropi_school" model="ir.ui.view">
+        <field name="name">Grade Form Tropi School</field>
+        <field name="model">tropi.school.grade</field>
+        <field name="arch" type="xml">
+            <form string="Grade">
+                <sheet>
+                    <group class="group-top">
+                      <group class="group-left">
+                        <field name="name"/>
+                        <field name="ground_id"/>
+                      </group>
+                      <group class="group-right">
+                        <field name="grade"/>
+                      </group>
+                    </group>
+                  <notebook>
+                      <page string="Sections">
+
+                          <field name="section_ids">
+                            <tree string="Sections" editable="bottom">
+                              <field name="grade_id" readonly="1"/>
+                              <field name="section"/>
+                            </tree>
+                            <form string="Section">
+                              <h1><field name="name"/></h1>
+                              <group class="group-top">
+                                <group class="group-left">
+                                  <field name="section"/>
+                                  <field name="ground_id"/>
+                                  <field name="limit"/>
+                                </group>
+                                <group class="group-right">
+                                  <field name="grade_id"/>
+                                </group>
+                              </group>
+                              <notebook>
+                                  <page string="Students">
+                                      <group>
+                                          <field name="student_ids">
+                                            <tree string="Students">
+                                              <field name="name"/>
+                                              <field name="id_student"/>
+                                            </tree>
+                                          </field>
+                                      </group>
+                                  </page>
+                              </notebook>
+                            </form>
+                          </field>
+                      </page>
+                      <page string="Students">
+                              <field name="student_ids">
+                                <tree string="Students">
+                                  <field name="name"/>
+                                  <field name="id_student"/>
+                                </tree>
+                              </field>
+                      </page>
+                  </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="grade_tree_tropi_school" model="ir.ui.view">
+        <field name="name">Grade Tree Tropi School</field>
+        <field name="model">tropi.school.grade</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+              <field name="grade"/>
+              <field name="ground_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="grade_action_tropi_school" model="ir.actions.act_window">
+        <field name="name">Grades</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tropi.school.grade</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <record id="tropi_school_section_form" model="ir.ui.view">
+        <field name="name">tropi.school.section.form</field>
+        <field name="model">tropi.school.section</field>
+        <field name="arch" type="xml">
+            <form string="Section">
+                <sheet>
+                  <h1><field name="name"/></h1>
+                  <group class="group-top">
+                    <group class="group-left">
+                      <field name="section"/>
+                      <field name="grade_id"/>
+                      <field name="limit"/>
+                    </group>
+                    <group class="group-right">
+                      <field name="ground_id"/>
+                    </group>
+                  </group>
+                  <notebook>
+                      <page string="Students">
+                              <field name="student_ids">
+                                <tree string="Students">
+                                  <field name="name"/>
+                                  <field name="id_student"/>
+                                </tree>
+                              </field>
+                      </page>
+                  </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tropi_school_section_tree" model="ir.ui.view">
+        <field name="name">tropi.school.section.tree</field>
+        <field name="model">tropi.school.section</field>
+        <field name="arch" type="xml">
+            <tree string="Sections">
+              <field name="grade_id"/>
+              <field name="section"/>
+              <field name="ground_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tropi_school_section_action" model="ir.actions.act_window">
+        <field name="name">Section</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tropi.school.section</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <record id="tropi_school_scholarship_form" model="ir.ui.view">
+        <field name="name">tropi.school.scholarship.form</field>
+        <field name="model">tropi.school.scholarship</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group class="group-top">
+                      <group class="group-left">
+                        <field name="name"/>
+                        <field name="count"/>
+                      </group>
+                      <group class="group-right">
+                        <field name="type_scholarship"/>
+                        <field name="percentage" attrs="{'invisible':[('type_scholarship', '=', 'partial'), ], 'required':[('type_scholarship', '=', 'partial'), ]}"/>
+                      </group>
+                    </group>
+                  <notebook>
+                      <page string="Scholarship Students">
+                            <field name="student_ids">
+                              <tree string="Scholarship Students">
+                                <field name="name"/>
+                                <field name="id_student"/>
+                              </tree>
+                            </field>
+                      </page>
+                  </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tropi_school_scholarship_tree" model="ir.ui.view">
+        <field name="name">tropi.school.scholarship.tree</field>
+        <field name="model">tropi.school.scholarship</field>
+        <field name="arch" type="xml">
+            <tree string="Scholarship Students">
+                <field name="name"/>
+                <field name="type_scholarship"/>
+                <field name="count"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tropi_school_scholarship_action" model="ir.actions.act_window">
+        <field name="name">Scholarship</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tropi.school.scholarship</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_partner_form_inherit_tropi_school" model="ir.ui.view">
+        <field name="name">view_partner_form_inherit_tropi_school</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+          <xpath expr="//field[@name='function']" position="before">
+            <!-- Add your fields or attributes here -->
+            <field name="student"/>
+          </xpath>
+
+            <xpath expr="//page[@name='internal_notes']" position="before">
+                <!-- Add your fields or attributes here -->
+                <page string="Schooling" >
+                  <group class="group-top">
+                    <group class="group-left">
+                        <field name="id_student" readonly="1"/>
+                      <field name="ground_id"/>
+                      <field name="scholarship_id"/>
+                    </group>
+                  <group class="group-right">
+                    <field name="grade_id"/>
+                    <field name="section_id"/>
+                  </group>
+                  </group>
+
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_student_action_tropi_school" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('student','=',True)]</field>
+        <field name="context">{"default_student":True}</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="tropi_school_root" name="Tropico" sequence="1"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="students_categ" name="Students" parent="tropi_school_root" sequence="0"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="student_action_categ" name="Students" parent="students_categ" action="view_student_action_tropi_school" sequence="0"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="school_categ" name="Grounds" parent="tropi_school_root" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="ground_categ" name="Grounds" parent="school_categ" action="ground_action_tropi_school" sequence="0"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="grades_categ" name="Grades" parent="school_categ" action="grade_action_tropi_school" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="section_categ" name="Sections" parent="school_categ" action="tropi_school_section_action" sequence="2"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="scholarship_categ" name="Scholarships" parent="school_categ" action="tropi_school_scholarship_action" sequence="3"/>
+
+
+  </data>
+</odoo>
