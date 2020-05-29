@@ -28,7 +28,7 @@
         'views/views.xml',
         'views/menus.xml',
         'views/res_partner.xml',
-        # 'views/index_template.xml',
+        'views/index_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
