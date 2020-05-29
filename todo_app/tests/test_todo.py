@@ -15,6 +15,8 @@ class TestTodo(TransactionCase):
         task.do_clear_done()
         self.asserFalse(task.active)
 
+        print('Your test was succesfull!')
+
     def setUp(self, *args, **kwargs):
         result= super(TestTodo, self).setUp(*args, **kwargs)
 
