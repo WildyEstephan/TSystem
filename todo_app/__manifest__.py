@@ -9,5 +9,4 @@
         'views/res_partner_view.xml',
              ],
     'application': True,
-    'installable': True
 }
