@@ -7,7 +7,7 @@ class TodoTask(models.Model):
     _description = 'To-Do Wildy'
     name = fields.Char('Description', required=True)
     is_done = fields.Boolean('Done?')
-    active = fields.Boolean('Active')
+    active = fields.Boolean('Active', default=True)
     user_id = fields.Many2one('res.users',
                               string='Responsible',
                               default=lambda self: self.env.user)
