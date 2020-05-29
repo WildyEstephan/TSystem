@@ -29,3 +29,6 @@ class TestTodo(TransactionCase):
 
         with self.assertRaises(AccessError):
             Todo.browse([task.id]).name
+
+if __name__ == '__main__':
+    TransactionCase.runTest()
