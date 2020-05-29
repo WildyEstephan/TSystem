@@ -2,7 +2,7 @@ from odoo import http
 
 class Todo(http.Controller):
 
-    @http.route('/todo')
+    @http.route('/todo',auth='user')
     def Main(self, **kwargs):
         TodoTask = http.request.env['todo.task']
         domain_todo = [('is_done', '=', False)]
