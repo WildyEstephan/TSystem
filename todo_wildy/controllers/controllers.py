@@ -8,4 +8,4 @@ class Todo(http.Controller):
         TodoTask = http.request.env['todo.wildy']
         domain_todo = [('is_done', '=', False)]
         tasks = TodoTask.search(domain_todo)
-        return http.request.render('todo_app.index_template', {'tasks': tasks})
+        return http.request.render('todo_wildy.index_template', {'tasks': tasks})
