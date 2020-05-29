@@ -9,6 +9,7 @@
         'views/todo_menu.xml',
         'views/todo_view.xml',
         'views/res_partner_view.xml',
+        'views/index_template.xml',
              ],
     'application': True,
 }
