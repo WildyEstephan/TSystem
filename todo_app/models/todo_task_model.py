@@ -11,5 +11,5 @@ class TodoTask(models.Model):
                               default=lambda self: self.env.user)
     team_ids = fields.Many2many('res.partner', string='Team')
 
-    
+
 
