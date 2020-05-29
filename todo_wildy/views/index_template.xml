@@ -8,7 +8,7 @@
             <!-- List of Task -->
             <t t-foreach="tasks" t-as="task">
                 <div class="row">
-                    <span t-field="name"/>
+                    <span t-field="task.name"/>
                 </div>
             </t>
         </div>
