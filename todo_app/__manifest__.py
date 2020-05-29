@@ -3,5 +3,6 @@
     'description': 'Manage personal to-do  tasks',
     'author': 'Wildy Estephan',
     'depends': ['base'],
+    'data': ['views/todo_menu.xml'],
     'application': True,
 }
